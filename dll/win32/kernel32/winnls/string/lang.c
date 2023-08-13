@@ -2393,7 +2393,7 @@ INT WINAPI LCMapStringEx(LPCWSTR locale, DWORD flags, LPCWSTR src, INT srclen, L
 
         ret = wine_get_sortkey(flags, src, srclen, (char *)dst, dstlen);
         if (ret == 0)
-            SetLastError(ERROR_INSUFFICIENT_BUFFER);
+        SetLastError(ERROR_INSUFFICIENT_BUFFER);
         else
             ret++;
         return ret;
@@ -2765,12 +2765,33 @@ INT WINAPI CompareStringA(LCID lcid, DWORD flags,
     return ret;
 }
 
+/******************************************************************************
+ *           CompareStringOrdinal    (KERNEL32.@)
+ */
+INT WINAPI CompareStringOrdinal(const WCHAR *str1, INT len1, const WCHAR *str2, INT len2, BOOL ignore_case)
+{
+    int ret;
+
+    if (!str1 || !str2)
+    {
+        SetLastError(ERROR_INVALID_PARAMETER);
+        return 0;
+    }
+    if (len1 < 0) len1 = strlenW(str1);
+    if (len2 < 0) len2 = strlenW(str2);
+
+    ret = RtlCompareUnicodeStrings( str1, len1, str2, len2, ignore_case );
+    if (ret < 0) return CSTR_LESS_THAN;
+    if (ret > 0) return CSTR_GREATER_THAN;
+    return CSTR_EQUAL;
+}
+
 #ifdef __REACTOS__
 HANDLE NLS_RegOpenKey(HANDLE hRootKey, LPCWSTR szKeyName)
 #else
 static HANDLE NLS_RegOpenKey(HANDLE hRootKey, LPCWSTR szKeyName)
 #endif
-{
+    {
     UNICODE_STRING keyName;
     OBJECT_ATTRIBUTES attr;
     HANDLE hkey;
