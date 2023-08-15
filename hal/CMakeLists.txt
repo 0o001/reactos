@@ -1,3 +1,6 @@
+if(CMAKE_CROSSCOMPILING)
+add_compile_options(/Ox /Ot /Oy /Ob1)
+endif()
 
 project(HAL)
 if((ARCH STREQUAL "i386") OR (ARCH STREQUAL "amd64"))

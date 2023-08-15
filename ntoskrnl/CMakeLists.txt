@@ -1,6 +1,8 @@
 
 PROJECT(NTOS)
 
+add_compile_options(/Ox /Ot /Oy /Ob1)
+
 if (CMAKE_C_COMPILER_ID STREQUAL "GNU" OR CMAKE_C_COMPILER_ID STREQUAL "Clang")
     # Enable this again. CORE-17637
     add_compile_options(-Wunused-result)

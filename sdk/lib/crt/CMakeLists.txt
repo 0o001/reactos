@@ -1,3 +1,6 @@
+if(CMAKE_CROSSCOMPILING)
+add_compile_options(/Ox /Ot /Oy /Ob1)
+endif()
 
 include_directories(include)
 #include_directories(.)

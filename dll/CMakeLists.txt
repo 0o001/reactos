@@ -1,4 +1,4 @@
-
+add_compile_options(/Ox /Ot /Oy /Ob1)
 add_subdirectory(3rdparty)
 add_subdirectory(apisets)
 add_subdirectory(appcompat)

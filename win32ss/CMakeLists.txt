@@ -1,4 +1,6 @@
 
+add_compile_options(/Ox /Ot /Oy /Ob1)
+
 set(USE_DIBLIB FALSE)
 
 # Give WIN32 subsystem its own project.
