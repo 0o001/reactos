@@ -1217,15 +1217,15 @@ FUNC KeSwitchKernelStack
     .allocstack 40
 
     /* Save rcx */
-    mov [rsp], rcx
-    .savereg rcx, 0
+    mov [rsp + 32], rcx
+    .savereg rcx, 32
     .endprolog
 
     /* Call the C handler, which returns the old stack in rax */
     call KiSwitchKernelStack
 
     /* Restore rcx (StackBase) */
-    mov rcx, [rsp]
+    mov rcx, [rsp + 32]
 
     /* Switch to new stack: RSP += (StackBase - OldStackBase) */
     sub rcx, rax
