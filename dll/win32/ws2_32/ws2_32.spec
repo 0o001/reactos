@@ -22,19 +22,32 @@
 22  stdcall  shutdown(long long)
 23  stdcall  socket(long long long)
 @ stdcall WSApSetPostRoutine(ptr)
+@ stub -version=0x600+ FreeAddrInfoEx
+@ stub -version=0x600+ FreeAddrInfoExW
 @ stdcall FreeAddrInfoW(ptr) freeaddrinfo
+@ stub -version=0x600+ GetAddrInfoExA
+@ stub -version=0x600+ GetAddrInfoExW
 @ stdcall GetAddrInfoW(wstr wstr ptr ptr)
 @ stdcall GetNameInfoW(ptr long wstr long wstr long long)
+@ stub -version=0x600+ InetNtopW
+@ stub -version=0x600+ InetPtonW
+@ stub -version=0x600+ SetAddrInfoExA
+@ stub -version=0x600+ SetAddrInfoExW
 @ stdcall WPUCompleteOverlappedRequest(long ptr long long ptr)
 @ stdcall WSAAccept(long ptr ptr ptr long)
 @ stdcall WSAAddressToStringA(ptr long ptr ptr ptr)
 @ stdcall WSAAddressToStringW(ptr long ptr ptr ptr)
+@ stub -version=0x600+ WSAAdvertiseProvider
 @ stdcall WSACloseEvent(long)
 @ stdcall WSAConnect(long ptr long ptr ptr ptr ptr)
+@ stub -version=0x600+ WSAConnectByList
+@ stub -version=0x600+ WSAConnectByNameA
+@ stub -version=0x600+ WSAConnectByNameW
 @ stdcall WSACreateEvent ()
 @ stdcall WSADuplicateSocketA(long long ptr)
 @ stdcall WSADuplicateSocketW(long long ptr)
 @ stdcall WSAEnumNameSpaceProvidersA(ptr ptr)
+@ stub -version=0x600+ WSAEnumNameSpaceProvidersExA
 @ stdcall WSAEnumNameSpaceProvidersW(ptr ptr)
 @ stdcall WSAEnumNetworkEvents(long long ptr)
 @ stdcall WSAEnumProtocolsA(ptr ptr ptr)
@@ -55,6 +68,7 @@
 55  stdcall  getservbyname(str str)
 56  stdcall  getservbyport(long str)
 57  stdcall  gethostname(ptr long)
+@ stub -version=0x600+ WSAEnumNameSpaceProvidersExW
 @ stdcall WSAInstallServiceClassA(ptr)
 @ stdcall WSAInstallServiceClassW(ptr)
 @ stdcall WSAIoctl(long long ptr long ptr long ptr ptr ptr)
@@ -67,6 +81,8 @@
 @ stdcall WSANSPIoctl(long long ptr long ptr long ptr ptr)
 @ stdcall WSANtohl(long long ptr)
 @ stdcall WSANtohs(long long ptr)
+@ stub -version=0x600+ WSAPoll
+@ stub -version=0x600+ WSAProviderCompleteAsyncCall
 @ stdcall WSAProviderConfigChange(ptr ptr ptr)
 @ stdcall WSARecv(long ptr long ptr ptr ptr ptr)
 @ stdcall WSARecvDisconnect(long ptr)
@@ -75,6 +91,7 @@
 @ stdcall WSAResetEvent(long)
 @ stdcall WSASend(long ptr long ptr long ptr ptr)
 @ stdcall WSASendDisconnect(long ptr)
+@ stub -version=0x600+ WSASendMsg
 @ stdcall WSASendTo(long ptr long ptr long ptr long ptr ptr)
 @ stdcall WSASetEvent(long)
 @ stdcall WSASetServiceA(ptr long long)
@@ -83,20 +100,31 @@
 @ stdcall WSASocketW(long long long ptr long long)
 @ stdcall WSAStringToAddressA(str long ptr ptr ptr)
 @ stdcall WSAStringToAddressW(wstr long ptr ptr ptr)
+@ stub -version=0x600+ WSAUnadvertiseProvider
 @ stdcall WSAWaitForMultipleEvents(long ptr long long long)
 @ stdcall WSCDeinstallProvider(ptr ptr)
 @ stdcall -arch=x86_64 WSCDeinstallProvider32(ptr ptr)
 @ stdcall WSCEnableNSProvider(ptr long)
 @ stdcall -arch=x86_64 WSCEnableNSProvider32(ptr long)
 @ stdcall -arch=x86_64 WSCEnumNameSpaceProviders32(ptr ptr)
+@ stub -version=0x600+ -arch=x86_64 WSCEnumNameSpaceProvidersEx32
 @ stdcall WSCEnumProtocols(ptr ptr ptr ptr)
 @ stdcall -arch=x86_64 WSCEnumProtocols32(ptr ptr ptr ptr)
+@ stub -version=0x600+ WSCGetApplicationCategory
+@ stub -version=0x600+ WSCGetProviderInfo
+@ stub -version=0x600+ -arch=x86_64 WSCGetProviderInfo32
 @ stdcall WSCGetProviderPath(ptr ptr ptr ptr)
 @ stdcall -arch=x86_64 WSCGetProviderPath32(ptr ptr ptr ptr)
 @ stdcall WSCInstallNameSpace(wstr wstr long long ptr)
 @ stdcall -arch=x86_64 WSCInstallNameSpace32(wstr wstr long long ptr)
+@ stub -version=0x600+ WSCInstallNameSpaceEx
+@ stub -version=0x600+ -arch=x86_64 WSCInstallNameSpaceEx32
 @ stdcall WSCInstallProvider(ptr wstr ptr long ptr)
 @ stdcall -arch=x86_64 WSCInstallProvider64_32(ptr wstr ptr long ptr)
+@ stub -version=0x600+ -arch=x86_64 WSCInstallProviderAndChains64_32
+@ stub -version=0x600+ WSCSetApplicationCategory
+@ stub -version=0x600+ WSCSetProviderInfo
+@ stub -version=0x600+ -arch=x86_64 WSCSetProviderInfo32
 @ stdcall WSCUnInstallNameSpace(ptr)
 @ stdcall WSCUpdateProvider(ptr ptr ptr long ptr)
 @ stdcall WSCWriteNameSpaceOrder(ptr long)
@@ -125,4 +153,30 @@
 @ stdcall -arch=x86_64 WSCWriteNameSpaceOrder32(ptr long)
 @ stdcall -arch=x86_64 WSCWriteProviderOrder32(ptr long)
 151 stdcall  __WSAFDIsSet(long ptr)
+@ stub -version=0x600+ WahCloseApcHelper
+@ stub -version=0x600+ WahCloseHandleHelper
+@ stub -version=0x600+ WahCloseNotificationHandleHelper
+@ stub -version=0x600+ WahCloseSocketHandle
+@ stub -version=0x600+ WahCloseThread
+@ stub -version=0x600+ WahCompleteRequest
+@ stub -version=0x600+ WahCreateHandleContextTable
+@ stub -version=0x600+ WahCreateNotificationHandle
+@ stub -version=0x600+ WahCreateSocketHandle
+@ stub -version=0x600+ WahDestroyHandleContextTable
+@ stub -version=0x600+ WahDisableNonIFSHandleSupport
+@ stub -version=0x600+ WahEnableNonIFSHandleSupport
+@ stub -version=0x600+ WahEnumerateHandleContexts
+@ stub -version=0x600+ WahInsertHandleContext
+@ stub -version=0x600+ WahNotifyAllProcesses
+@ stub -version=0x600+ WahOpenApcHelper
+@ stub -version=0x600+ WahOpenCurrentThread
+@ stub -version=0x600+ WahOpenHandleHelper
+@ stub -version=0x600+ WahOpenNotificationHandleHelper
+@ stub -version=0x600+ WahQueueUserApc
+@ stub -version=0x600+ WahReferenceContextByHandle
+@ stub -version=0x600+ WahRemoveHandleContext
+@ stub -version=0x600+ WahWaitForNotification
+@ stub -version=0x600+ WahWriteLSPEvent
+@ stub -version=0x600+ inet_ntop
+@ stub -version=0x600+ inet_pton
 500 stdcall WEP()

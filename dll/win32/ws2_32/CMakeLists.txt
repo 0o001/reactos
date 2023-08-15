@@ -45,13 +45,17 @@ list(APPEND SOURCE
     src/wsautil.c
     inc/ws2_32.h)
 
+list(APPEND PCH_SKIP_SOURCE
+    ${CMAKE_CURRENT_BINARY_DIR}/ws2_32_stubs.c)
+
 add_library(ws2_32 MODULE
     ${SOURCE}
+    ${PCH_SKIP_SOURCE}
     ws2_32.rc
     ${CMAKE_CURRENT_BINARY_DIR}/ws2_32.def)
 
 set_module_type(ws2_32 win32dll)
 target_link_libraries(ws2_32 ${PSEH_LIB})
 add_importlibs(ws2_32 user32 advapi32 ws2help msvcrt kernel32 ntdll)
-add_pch(ws2_32 inc/ws2_32.h SOURCE)
+#add_pch(ws2_32 inc/ws2_32.h SOURCE "${PCH_SKIP_SOURCE}")
 add_cd_file(TARGET ws2_32 DESTINATION reactos/system32 FOR all)
