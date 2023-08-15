@@ -34,6 +34,8 @@ PspUserThreadStartup(IN PKSTART_ROUTINE StartRoutine,
     PSTRACE(PS_THREAD_DEBUG,
             "StartRoutine: %p StartContext: %p\n", StartRoutine, StartContext);
 
+    KiDeliverApc(KernelMode, NULL, NULL);
+
     /* Go to Passive Level */
     KeLowerIrql(PASSIVE_LEVEL);
     Thread = PsGetCurrentThread();
