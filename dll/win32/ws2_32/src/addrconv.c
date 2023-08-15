@@ -492,3 +492,17 @@ WSANtohs(IN SOCKET s,
     return SOCKET_ERROR;
 }
 
+WINSOCK_API_LINKAGE
+INT
+WSAAPI
+inet_pton(
+    _In_ INT Family,
+    _In_ PCSTR pszAddrString,
+    _Out_writes_bytes_(sizeof(IN6_ADDR)) PVOID pAddrBuf)
+{
+    UNIMPLEMENTED;
+    return SOCKET_ERROR;
+}
+
+typedef unsigned char u_char;
+#include "../winhttp/inet_ntop.c"

@@ -177,6 +177,6 @@
 @ stub -version=0x600+ WahRemoveHandleContext
 @ stub -version=0x600+ WahWaitForNotification
 @ stub -version=0x600+ WahWriteLSPEvent
-@ stub -version=0x600+ inet_ntop
-@ stub -version=0x600+ inet_pton
+@ stdcall -version=0x600+ inet_ntop(long ptr ptr long)
+@ stdcall -version=0x600+ inet_pton(long ptr ptr)
 500 stdcall WEP()
