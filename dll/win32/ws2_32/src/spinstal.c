@@ -31,6 +31,25 @@ WSCInstallProvider(IN LPGUID lpProviderId,
     return SOCKET_ERROR;
 }
 
+#ifdef _WIN64
+/*
+ * @unimplemented
+ */
+int
+WSPAPI
+WSCInstallProvider64_32(
+    _In_ LPGUID lpProviderId,
+    _In_z_ const WCHAR FAR* lpszProviderDllPath,
+    _In_reads_(dwNumberOfEntries) const LPWSAPROTOCOL_INFOW lpProtocolInfoList,
+    _In_ DWORD dwNumberOfEntries,
+    _Out_ LPINT lpErrno)
+{
+    UNIMPLEMENTED;
+    SetLastError(WSAEINVAL);
+    return SOCKET_ERROR;
+}
+#endif
+
 /*
  * @unimplemented
  */
@@ -44,6 +63,22 @@ WSCDeinstallProvider(IN LPGUID lpProviderId,
     return SOCKET_ERROR;
 }
 
+#ifdef _WIN64
+/*
+ * @unimplemented
+ */
+int
+WSPAPI
+WSCDeinstallProvider32(
+    _In_ LPGUID lpProviderId,
+    _Out_ LPINT lpErrno)
+{
+    UNIMPLEMENTED;
+    SetLastError(WSAEINVAL);
+    return SOCKET_ERROR;
+}
+#endif
+
 /*
  * @unimplemented
  */
@@ -56,3 +91,19 @@ WSCWriteProviderOrder(IN LPDWORD lpwdCatalogEntryId,
     SetLastError(WSAEINVAL);
     return SOCKET_ERROR;
 }
+
+#ifdef _WIN64
+/*
+ * @unimplemented
+ */
+int
+WSPAPI
+WSCWriteProviderOrder32(
+    IN LPDWORD lpwdCatalogEntryId,
+    IN DWORD dwNumberOfEntries)
+{
+    UNIMPLEMENTED;
+    SetLastError(WSAEINVAL);
+    return SOCKET_ERROR;
+}
+#endif

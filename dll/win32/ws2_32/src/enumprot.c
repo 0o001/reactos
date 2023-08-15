@@ -221,6 +221,24 @@ WSCEnumProtocols(IN LPINT lpiProtocols,
     return Status;
 }
 
+#ifdef _WIN64
+/*
+ * @unimplemented
+ */
+int
+WSPAPI
+WSCEnumProtocols32(
+    _In_opt_ LPINT lpiProtocols,
+    _Out_writes_bytes_(*lpdwBufferLength) LPWSAPROTOCOL_INFOW lpProtocolBuffer,
+    _Inout_ LPDWORD lpdwBufferLength,
+    _Out_ LPINT lpErrno)
+{
+    UNIMPLEMENTED;
+    SetLastError(WSAEINVAL);
+    return SOCKET_ERROR;
+}
+#endif
+
 /*
  * @implemented
  */
@@ -414,3 +432,22 @@ WSCGetProviderPath(IN LPGUID lpProviderId,
 
     return 0;
 }
+
+#ifdef _WIN64
+/*
+ * @unimplemented
+ */
+_Success_(return == 0)
+int
+WSPAPI
+WSCGetProviderPath32(
+    _In_ LPGUID lpProviderId,
+    _Out_writes_to_(*lpProviderDllPathLen, *lpProviderDllPathLen) WCHAR FAR * lpszProviderDllPath,
+    _Inout_ LPINT lpProviderDllPathLen,
+    _Out_ LPINT lpErrno)
+{
+    UNIMPLEMENTED;
+    SetLastError(WSAEINVAL);
+    return SOCKET_ERROR;
+}
+#endif
