@@ -1,6 +1,3 @@
-#if(CMAKE_CROSSCOMPILING)
-#add_compile_options(/Ox /Ot /Oy /Ob1)
-#endif()
 
 add_subdirectory(atl)
 add_subdirectory(cmlib)

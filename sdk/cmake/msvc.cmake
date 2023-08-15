@@ -1,14 +1,20 @@
 
-# Optimization
-if(CMAKE_BUILD_TYPE STREQUAL "Release" OR
-   CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
-    add_compile_options(/Ox /Ot /Oy)
+if(CMAKE_BUILD_TYPE STREQUAL "Release")
+    add_compile_options(/Ox /Ob2 /Ot /Oy)
     # Avoid spam in clang-cl as it doesn't support /GT
     if(CMAKE_C_COMPILER_ID STREQUAL "MSVC")
         add_compile_options(/GT)
     endif()
-else()
+elseif(OPTIMIZE STREQUAL "1")
+    add_compile_options(/O1)
+elseif(OPTIMIZE STREQUAL "2")
+    add_compile_options(/O2)
+elseif(OPTIMIZE STREQUAL "3")
+    add_compile_options(/Ot /Ox /GS-)
+elseif(OPTIMIZE STREQUAL "4")
     add_compile_options(/Ob0 /Od)
+elseif(OPTIMIZE STREQUAL "5")
+    add_compile_options(/Ob2 /Os /Ox /GS-)
 endif()
 
 # Always use string pooling: this helps reducing the binaries size since a lot
@@ -163,7 +169,7 @@ endif()
 
 if(RUNTIME_CHECKS)
     add_definitions(-D__RUNTIME_CHECKS__)
-    #add_compile_options(/RTC1)
+    add_compile_options(/RTC1)
 endif()
 
 add_link_options(/MANIFEST:NO /INCREMENTAL:NO /SAFESEH:NO /NODEFAULTLIB /RELEASE ${_hotpatch_link_flag} /IGNORE:4039)
