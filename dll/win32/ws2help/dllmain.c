@@ -118,6 +118,10 @@ Ws2helpInitialize(VOID)
     return ERROR_SUCCESS;
 }
 
+#if (DLL_EXPORT_VERSION >= 0x600)
+#define DllMain Ws2HelpDllEntry
+#endif
+
 BOOL
 APIENTRY
 DllMain(HANDLE hModule,
