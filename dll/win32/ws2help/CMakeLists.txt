@@ -12,6 +12,7 @@ list(APPEND SOURCE
 
 add_library(ws2help_static
     ${SOURCE})
+add_dependencies(ws2help_static xdk)
 
 add_library(ws2help MODULE
     ${CMAKE_CURRENT_BINARY_DIR}/ws2help.def)
