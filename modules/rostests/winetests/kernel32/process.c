@@ -3445,7 +3445,7 @@ static void test_SuspendProcessState(void)
     ok( entry_ptr == (char *)exe_base + nt_header.OptionalHeader.AddressOfEntryPoint,
         "wrong entry point %p/%p\n", entry_ptr,
         (char *)exe_base + nt_header.OptionalHeader.AddressOfEntryPoint );
-    __debugbreak();
+
     ret = SetThreadContext(pi.hThread, &ctx);
     ok(ret, "Failed to set remote thread context (%d)\n", GetLastError());
 

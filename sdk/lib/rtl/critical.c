@@ -173,7 +173,7 @@ RtlpWaitForCriticalSection(PRTL_CRITICAL_SECTION CriticalSection)
             if (LastChance)
             {
                 ERROR_DBGBREAK("Deadlock: 0x%p\n", CriticalSection);
-                __debugbreak();
+
                 /* Yes it is, we are raising an exception */
                 ExceptionRecord.ExceptionCode    = STATUS_POSSIBLE_DEADLOCK;
                 ExceptionRecord.ExceptionFlags   = 0;
